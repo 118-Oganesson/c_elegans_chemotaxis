@@ -1,0 +1,41 @@
+# Genetic Algorithm Settings
+[Ga_setting]
+average = 50   # Number of repetitions for CI measurement
+gen_size = 22  # Length of the gene
+ga_count = 100 # Number of GA executions
+n_gen = 300    # Number of generations
+pop_size = 60  # Population size
+sel_top = 20   # Number of top individuals selected
+mat_pb = 0.6   # Crossover probability
+mut_pb = 0.5   # Mutation probability
+re_val = 50    # Interval for re-evaluating all individuals
+
+# Simulation settings for C. elegans (during Genetic Algorithm)
+[setting]
+alpha = [-0.38, -0.01]  # Range of concentration gradients
+x_peak = 4.5            # x-coordinate of gradient peak (cm)
+y_peak = 0.0            # y-coordinate of gradient peak (cm)
+dt = 0.01               # Time step (s)
+periodic_time = 4.2     # Duration of one movement cycle (s)
+frequency = 0.033       # Mean directional change frequency (Hz)
+velocity = 0.022        # Worm velocity (cm/s)
+simulation_time = 500.0 # Total simulation time (s)
+time_constant = 0.1     # Time constant (s)
+
+c_0 = 1       # Not used in genetic algorithm
+lambda = 1.61 # Not used in genetic algorithm
+
+# Simulation settings for C. elegans (final evaluation)
+[testing]
+alpha = [-0.38, -0.01]
+x_peak = 4.5
+y_peak = 0.0
+dt = 0.01
+periodic_time = 4.2
+frequency = 0.033
+velocity = 0.022
+simulation_time = 500.0
+time_constant = 0.1
+
+c_0 = 1       # Not used in genetic algorithm
+lambda = 1.61 # Not used in genetic algorithm

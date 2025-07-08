@@ -1,0 +1,15 @@
+[package]
+name = "c_elegans_chemotaxis"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = '0.8.5'
+rand_distr = '0.4.3'
+rayon = '1.8.0'
+chrono = '0.4.31'
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8.8"

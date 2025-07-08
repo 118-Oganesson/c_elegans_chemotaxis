@@ -1,0 +1,43 @@
+[file_name]
+read_result_json = "./data/gene/Result_aiy_aiz_negative.json"
+bearing_vs_curving_rate_output = "./test/b_vs_c"                       # No .txt extension needed
+nomal_gradient_vs_curving_rate_output = "./test/n_vs_c"               # No .txt extension needed
+translational_gradient_vs_curving_rate_output = "./test/t_vs_c"       # No .txt extension needed
+
+[liner_setting]
+alpha = [-0.010001, -0.01]      # Range of concentration gradient
+c_0 = 1                        # Gaussian concentration parameter
+lambda = 1.61                  # Gaussian concentration parameter
+x_peak = 4.5                  # x-coordinate of gradient peak (cm)
+y_peak = 0.0                  # y-coordinate of gradient peak (cm)
+dt = 0.01                    # Time step width (s)
+periodic_time = 4.2          # Duration of one movement cycle (s)
+frequency = 0.033            # Mean frequency of directional change (Hz)
+velocity = 0.022             # Worm velocity (cm/s)
+simulation_time = 200.0      # Simulation time (s)
+time_constant = 0.1          # Time constant (s)
+
+[analysis_setting]
+gene_number = 0                   # Gene number for statistics (lower is better), no effect even if input
+mode = 1                         # Concentration function selection (mode=0: linear, mode=1: Gaussian, mode=2: two Gaussians)
+analysis_loop = 100_000          # Number of repetitions for statistics
+periodic_number = 3              # Number of cycles used in calculation
+periodic_number_drain = 3        # Number of initial cycles discarded
+bin_range = 10                   # Histogram bin width (bearing)
+delta = 0.001                   # Distance between two points in concentration gradient
+bin_number = 30                 # Number of bins in histogram (concentration gradient)
+concentration_gradient_max = 0.05 # Maximum concentration gradient
+
+[analysis_use_gene]
+mode = 0                      # Method to specify gene numbers to analyze (mode=0: list of gene numbers, mode=1: gene number range)
+gene_numbers = [0]            # Specify gene numbers in the list
+gene_number_range = [0, 2]    # Specify gene numbers from start to end inclusive
+
+[analysis_use_function]
+# 0: analysis_klinotaxis_bearing_errbar_std_max_min
+#    (1: bearing, 2: curving rate, 3: std, 4: max, 5: min)
+# 1: analysis_klinotaxis_nomal_gradient_errbar_std_max_min
+#    (1: normal gradient, 2: curving rate, 3: std, 4: max, 5: min)
+# 2: analysis_klinotaxis_translational_gradient_errbar_std_positive_negative
+#    (1: translational gradient, 2: curving rate, 3: std, 4: t_b_posi, 5: std_posi, 6: t_b_nega, 7: std_nega)
+mode = [0, 1, 2]

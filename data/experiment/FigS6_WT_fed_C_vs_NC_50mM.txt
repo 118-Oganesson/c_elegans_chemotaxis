@@ -1,0 +1,18 @@
+# Digitized by GSYS2.4.9
+# Date =  7.Jun.2024,  12:38:52
+# Number of data = 9
+# set xrange[-2.0, 2.0]
+# set yrange[-15.0, 15.0] 
+# MD5Fig : 1b68be33a235e29414cb0cd0021cc7ab
+# Axis_X : 3fc08df52e17cdcc3fe915f5700472853feef8dbdc82b47a3fe91eda79bef529
+# Axis_Y : 3fe1873fd6738e9b3fe927bf837977cd3fe18c00cf794e913fa7e77c00bac9cc
+#     x           y    
+ -2.006E+00   3.216E+00
+ -1.506E+00   2.737E+00
+ -1.014E+00   3.579E+00
+ -5.096E-01   1.911E+00
+ -1.396E-03   1.983E-01
+  4.987E-01  -1.074E+00
+  9.907E-01  -1.421E+00
+  1.499E+00  -1.107E+00
+  1.995E+00  -4.406E-01

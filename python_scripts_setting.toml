@@ -1,0 +1,41 @@
+# C. elegans Simulation Settings
+[setting]
+alpha = -0.01 # Concentration gradient
+x_peak = 4.5  # x-coordinate of gradient peak (cm)
+y_peak = 0    # y-coordinate of gradient peak (cm)
+dt = 0.001    # Time step size (s)
+T = 4.2       # Duration of one movement cycle (s)
+f = 0.033     # Mean directional frequency (Hz)
+v = 0.022     # Worm velocity (cm/s)
+time = 350    # Simulation time (s)
+tau = 0.1     # Time constant (s)
+c_0 = 1       # Constant of Gaussian function
+lambda = 1.61 # Constant of Gaussian function
+
+# Settings for neuron output (important: "time = 10")
+[setting_neuron_output]
+alpha = -0.01
+x_peak = 4.5
+y_peak = 0
+dt = 0.01
+T = 4.2
+f = 0.033
+v = 0.022
+time = 10
+tau = 0.1
+c_0 = 1
+lambda = 1.61
+
+# Settings for animation
+[setting_animation]
+alpha = -0.01
+x_peak = 4.5
+y_peak = 0
+dt = 0.001
+T = 4.2
+f = 0.033
+v = 0.022
+time = 302
+tau = 0.1
+c_0 = 1
+lambda = 1.61
