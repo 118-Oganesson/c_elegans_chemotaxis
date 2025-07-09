@@ -2,7 +2,7 @@ use crate::simulation::function::*;
 use crate::simulation::gene::*;
 use crate::simulation::setting::*;
 use crate::simulation::time::*;
-use rand::{thread_rng, Rng};
+use rand::{rng, Rng};
 use std::collections::VecDeque;
 use std::f64::consts::PI;
 
@@ -27,11 +27,12 @@ pub fn chemotaxis_index(gene: &Gene, setting: &Setting) -> f64 {
         c_vec.push_back(concentration(&constant, 0.0, 0.0));
     }
     //運動ニューロンの初期活性を0～1の範囲でランダム化
-    let _ = thread_rng().try_fill(&mut y[0][4..]);
+    let mut rng_init = rng();
+    rng_init.fill(&mut y[0][4..]);
 
     //ランダムな向きで配置
-    let mut rng: rand::rngs::ThreadRng = thread_rng();
-    mu[0] = rng.gen_range(0.0..2.0 * PI);
+    let mut rng_dir = rng();
+    mu[0] = rng_dir.random_range(0.0..2.0 * PI);
 
     let mut ci: f64 = 0.0;
     //オイラー法
@@ -117,11 +118,12 @@ pub fn chemotaxis_index_wave_check(gene: &Gene, setting: &Setting) -> f64 {
         c_vec.push_back(concentration(&constant, 0.0, 0.0));
     }
     //運動ニューロンの初期活性を0～1の範囲でランダム化
-    let _ = thread_rng().try_fill(&mut y[0][4..]);
+    let mut rng_init = rng();
+    rng_init.fill(&mut y[0][4..]);
 
     //ランダムな向きで配置
-    let mut rng: rand::rngs::ThreadRng = thread_rng();
-    mu[0] = rng.gen_range(0.0..2.0 * PI);
+    let mut rng_dir = rng();
+    mu[0] = rng_dir.random_range(0.0..2.0 * PI);
 
     let mut ci: f64 = 0.0;
     //オイラー法
@@ -157,8 +159,8 @@ pub fn chemotaxis_index_wave_check(gene: &Gene, setting: &Setting) -> f64 {
 
         //ピルエット
         if k % time.f_inv_time == time.f_inv_time - 1 {
-            let mut rng: rand::rngs::ThreadRng = thread_rng();
-            mu[1] = rng.gen_range(0.0..2.0 * PI);
+            let mut rng = rng();
+            mu[1] = rng.random_range(0.0..2.0 * PI);
         }
 
         //波打ちながら進んでいるかのチェック

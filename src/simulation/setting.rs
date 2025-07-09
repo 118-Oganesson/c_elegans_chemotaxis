@@ -1,4 +1,4 @@
-use rand::{thread_rng, Rng};
+use rand::{rng, Rng};
 use serde::{Deserialize, Serialize};
 
 // シミュレーション設定を表す構造体Setting
@@ -36,9 +36,9 @@ impl Setting {
     // Setting構造体のデータを基にConst構造体を生成するメソッド
     pub fn const_new(&self) -> Const {
         // 乱数生成器を初期化
-        let mut rng: rand::prelude::ThreadRng = thread_rng();
+        let mut rng = rng();
         // alphaの範囲内で乱数を生成
-        let a: f64 = rng.gen_range(self.alpha.0..self.alpha.1);
+        let a: f64 = rng.random_range(self.alpha.0..self.alpha.1);
 
         // Const構造体を生成して返す
         Const {

@@ -19,7 +19,7 @@ pub fn translational_gradient(
         0 => concentration,
         1 => gauss_concentration,
         2 => two_gauss_concentration,
-        _ => panic!("Invalid mode: {}", mode),
+        _ => panic!("Invalid mode: {mode}"),
     };
 
     let mut bearing_point: Vec<[[f64; 2]; 2]> = Vec::new();
@@ -261,17 +261,6 @@ pub fn analysis_klinotaxis_translational_gradient_errbar_std_positive_negative(
         .zip(curving_rate_negative_hist.iter())
         .zip(error_bar_negative_std.iter())
     {
-        writeln!(
-            file,
-            "{}, {}, {}, {}, {}, {}, {}",
-            translational,
-            curving_rate,
-            std,
-            positive_curving_rate,
-            positive_std,
-            negative_curving_rate,
-            negative_std,
-        )
-        .unwrap();
+        writeln!(file, "{translational}, {curving_rate}, {std}, {positive_curving_rate}, {positive_std}, {negative_curving_rate}, {negative_std}").unwrap();
     }
 }

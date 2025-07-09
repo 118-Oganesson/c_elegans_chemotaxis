@@ -5,14 +5,14 @@ use crate::genetic_algorithm::mutation::*;
 use crate::genetic_algorithm::population::*;
 use crate::genetic_algorithm::setting::*;
 use crate::simulation::*;
-use rand::Rng;
+use rand::{rng, Rng};
 use std::fs::File;
 use std::io::prelude::*;
 use toml::Value;
 
-// genetic_algorithm_biologically_correct関数は生物学的な制約を加えた遺伝的アルゴリズムを用いて線虫の生理学的なパラメータを最適化します
+// genetic_algorithm_constrain_aiy_aiz関数は生物学的な制約を加えた遺伝的アルゴリズムを用いて線虫の生理学的なパラメータを最適化します
 #[allow(dead_code)]
-pub fn genetic_algorithm_biologically_correct() {
+pub fn genetic_algorithm_constrain_aiy_aiz() {
     // tomlファイルを読み込む
     let toml_str: String =
         std::fs::read_to_string("genetic_algorithm_setting.toml").expect("Failed to read file");
@@ -67,9 +67,9 @@ pub fn genetic_algorithm_biologically_correct() {
             //交叉
             let mut mate: Vec<Ga> = Vec::new();
             let clone: Vec<Ga> = select.clone();
-            let mut rng: rand::rngs::ThreadRng = rand::thread_rng();
+            let mut rng = rng();
             for i in (0..clone.len()).step_by(2) {
-                if i + 1 < clone.len() && rng.gen::<f64>() < ga_setting.mat_pb {
+                if i + 1 < clone.len() && rng.random::<f64>() < ga_setting.mat_pb {
                     let parent1: &Ga = &clone[i];
                     let parent2: &Ga = &clone[i + 1];
                     let child: Vec<Ga> = two_point_crossover(parent1, parent2);
@@ -81,7 +81,7 @@ pub fn genetic_algorithm_biologically_correct() {
             let mut mutant: Vec<Ga> = Vec::new();
             let clone: Vec<Ga> = select.clone();
             for ind in clone.iter() {
-                if rng.gen::<f64>() < ga_setting.mut_pb {
+                if rng.random::<f64>() < ga_setting.mut_pb {
                     mutant.push(mutation_aiy_aiz_negative(ind, 0.4, (0.0, 0.05)));
                 }
             }

@@ -149,11 +149,6 @@ pub fn analysis_klinotaxis_bearing_errbar_std_max_min(
         .zip(error_bar_max.iter())
         .zip(error_bar_min.iter())
     {
-        writeln!(
-            file,
-            "{}, {}, {}, {}, {}",
-            bearing, curving_rate, std, max, min
-        )
-        .unwrap();
+        writeln!(file, "{bearing}, {curving_rate}, {std}, {max}, {min}").unwrap();
     }
 }

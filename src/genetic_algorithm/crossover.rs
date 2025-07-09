@@ -1,14 +1,14 @@
 use crate::genetic_algorithm::ga::*;
 use crate::simulation::*;
-use rand::Rng;
+use rand::{rng, Rng};
 
 // two_point_crossover関数は2点交叉を実行し、2つの子個体を生成します
 pub fn two_point_crossover(parent1: &Ga, parent2: &Ga) -> Vec<Ga> {
     // ランダムな交叉点を決定
-    let mut rng: rand::prelude::ThreadRng = rand::thread_rng();
+    let mut rng = rng();
     let crossover_points: (usize, usize) = (
-        rng.gen_range(0..parent1.gene.gene.len()),
-        rng.gen_range(0..parent1.gene.gene.len()),
+        rng.random_range(0..parent1.gene.gene.len()),
+        rng.random_range(0..parent1.gene.gene.len()),
     );
     let (start, end) = if crossover_points.0 < crossover_points.1 {
         (crossover_points.0, crossover_points.1)

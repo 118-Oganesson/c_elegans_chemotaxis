@@ -3,7 +3,7 @@ use crate::analysis::curving_rate::*;
 use crate::analysis::normal_gradient::*;
 use crate::analysis::translational_gradient::*;
 use crate::simulation::*;
-use rand::{thread_rng, Rng};
+use rand::{rng, Rng};
 use std::collections::VecDeque;
 use std::f64::consts::PI;
 
@@ -39,7 +39,7 @@ pub fn klinotaxis_analysis(
         0 => concentration,
         1 => gauss_concentration,
         2 => two_gauss_concentration,
-        _ => panic!("Invalid mode: {}", mode),
+        _ => panic!("Invalid mode: {mode}"),
     };
 
     //初期濃度の履歴生成
@@ -49,11 +49,12 @@ pub fn klinotaxis_analysis(
     }
 
     //運動ニューロンの初期活性を0～1の範囲でランダム化
-    let _ = thread_rng().try_fill(&mut y[0][4..]);
+    let mut rng_init = rng();
+    rng_init.fill(&mut y[0][4..]);
 
     //ランダムな向きで配置
-    let mut rng: rand::rngs::ThreadRng = thread_rng();
-    mu[0] = rng.gen_range(0.0..2.0 * PI);
+    let mut rng_dir = rng();
+    mu[0] = rng_dir.random_range(0.0..2.0 * PI);
 
     //オイラー法
     for k in 0..time.simulation_time - 1 {

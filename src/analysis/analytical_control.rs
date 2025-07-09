@@ -17,7 +17,7 @@ pub fn analytical_control() {
     let toml_str = match fs::read_to_string("klinotaxis_analysis_setting.toml") {
         Ok(content) => content,
         Err(e) => {
-            eprintln!("Error reading klinotaxis_analysis_setting.toml: {}", e);
+            eprintln!("Error reading klinotaxis_analysis_setting.toml: {e}");
             return;
         }
     };
@@ -25,7 +25,7 @@ pub fn analytical_control() {
     let value: Value = match toml::from_str(&toml_str) {
         Ok(v) => v,
         Err(e) => {
-            eprintln!("Error parsing TOML: {}", e);
+            eprintln!("Error parsing TOML: {e}");
             return;
         }
     };
@@ -86,7 +86,7 @@ pub fn analytical_control() {
         ensure_parent_dirs(&file_name);
 
         for mode in &analysis_use_function.mode {
-            println!("Analyzing gene {} with mode {}", gene_index, mode);
+            println!("Analyzing gene {gene_index} with mode {mode}");
             match mode {
                 0 => analysis_klinotaxis_bearing_errbar_std_max_min(
                     &result_ga,
@@ -110,7 +110,7 @@ pub fn analytical_control() {
                     mode,
                 ),
                 _ => {
-                    eprintln!("Unknown analysis mode: {}", mode);
+                    eprintln!("Unknown analysis mode: {mode}");
                 }
             }
         }
@@ -148,7 +148,7 @@ fn ensure_parent_dirs(file_name: &Filename) {
         if let Some(parent) = Path::new(path_str).parent() {
             if !parent.exists() {
                 if let Err(e) = fs::create_dir_all(parent) {
-                    eprintln!("Failed to create directory {:?}: {}", parent, e);
+                    eprintln!("Failed to create directory {parent:?}: {e}");
                 }
             }
         }

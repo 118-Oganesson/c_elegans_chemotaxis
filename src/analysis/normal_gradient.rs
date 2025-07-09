@@ -19,7 +19,7 @@ pub fn normal_gradient(
         0 => concentration,
         1 => gauss_concentration,
         2 => two_gauss_concentration,
-        _ => panic!("Invalid mode: {}", mode),
+        _ => panic!("Invalid mode: {mode}"),
     };
 
     let mut bearing_point: Vec<[[f64; 2]; 2]> = Vec::new();
@@ -185,11 +185,6 @@ pub fn analysis_klinotaxis_nomal_gradient_errbar_std_max_min(
         .zip(error_bar_max.iter())
         .zip(error_bar_min.iter())
     {
-        writeln!(
-            file,
-            "{}, {}, {}, {}, {}",
-            nomal, curving_rate, std, max, min
-        )
-        .unwrap();
+        writeln!(file, "{nomal}, {curving_rate}, {std}, {max}, {min}").unwrap();
     }
 }
