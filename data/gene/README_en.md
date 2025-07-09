@@ -1,41 +1,37 @@
-Here is a natural English translation of your explanation for the **gene** directory:
-
----
-
 # Description of the `gene` Directory
 
-This directory contains multiple JSON files storing genetic data optimized by a genetic algorithm, along with their evaluation values. Each file corresponds to optimization results under different experimental conditions, organized by file names and subdirectories.
+This directory contains multiple JSON files, each holding genetic parameter data optimized by a genetic algorithm along with their associated fitness values. Each file records data optimized under different experimental conditions, and is organized by filename or subdirectory.
 
 ---
 
-## 📁 Files and Directories Overview
+## 📁 File & Directory Overview
 
 ### 1. `Result.json`
 
-* **Contents:** Genetic data optimized without special constraints.
-* **Structure:**
+* **Contents**: Genetic data optimized with no special constraints.
+* **Structure**:
 
-  * `value`: Evaluation score
+  * `value`: Fitness score
   * `gene`: List of numerical gene parameters (e.g., synaptic weights)
 
 ```json
 [
-    {
-        "value": 0.0,
-        "gene": [
-            -0.8094022576319283,
-            -0.6771492613425638,
-            ...
-        ]
-    },
-    {
-        "value": 0.1,
-        "gene": [
-            -0.8094022576319283,
-            -0.6771492613425638,
-            ...
-        ]
-    }
+  {
+    "value": 0.0,
+    "gene": [
+      -0.8094022576319283,
+      -0.6771492613425638,
+      ...
+    ]
+  },
+  {
+    "value": 0.1,
+    "gene": [
+      -0.8094022576319283,
+      -0.6771492613425638,
+      ...
+    ]
+  }
 ]
 ```
 
@@ -43,69 +39,63 @@ This directory contains multiple JSON files storing genetic data optimized by a 
 
 ### 2. `Result_aiy_aiz_negative.json`
 
-* **Contents:** Genetic data optimized with the AIY-AIZ synapse fixed as inhibitory.
-* **Structure:** Same as `Result.json`
+* **Contents**: Genetic data optimized under an inhibitory constraint on the AIY–AIZ synapse.
+* **Structure**: Same as `Result.json`.
 
 ---
 
 ## 📁 `concentration_memory/`
 
-Data related to optimization and changes involving conditional memory retention mechanisms.
+Contains data relating to optimization and manipulation of chemotaxis based on salt-concentration memory.
 
 ### 3. `Result_aiy_aiz_negative_0.json`
 
-* **Contents:** Based on the 0th gene from `Result_aiy_aiz_negative.json`, this dataset gradually changes the ASER-AIY synapse to be more excitatory.
-* **`value`:** The parameter added to the ASER-AIY synapse property (larger values mean more excitatory)
+* **Contents**: Starting from the 0th entry in `Result_aiy_aiz_negative.json`, this file gradually shifts the ASER–AIY synapse toward excitatory behavior.
+* **`value`**: Amount added to the ASER–AIY synapse parameter (larger values = stronger excitation).
 
 ### 4. `Result_aiy_aiz_negative_1.json`
 
-* **Contents:** Similar to the above, but based on the 1st gene from `Result_aiy_aiz_negative.json`.
-* **`value`:** The parameter added to the ASER-AIY synapse property (larger values mean more excitatory)
+* **Contents**: Similar to #3, but based on the 1st entry of `Result_aiy_aiz_negative.json`.
+* **`value`**: Amount added to the ASER–AIY synapse parameter.
 
 ---
 
 ## 📁 `starvation/`
 
-Genetic data reflecting changes under starvation conditions.
+Holds genetic data reflecting changes under starvation conditions.
 
 ### 🔸 `synapse/`
 
-### 5. `Result_aiz_smb_0.json`
+#### 5. `Result_aiz_smb_0.json`
 
-* **Contents:** Based on the 0th gene from `Result_aiy_aiz_negative.json`, this data gradually weakens the AIZ-SMB synapse.
-* **`value`:** Scaling factor applied to the synapse strength
+* **Contents**: Based on the 0th entry of `Result_aiy_aiz_negative.json`, this file gradually weakens the AIZ–SMB synapse.
+* **`value`**: Scaling factor applied to that synapse.
 
-### 6. `Result_aiz_smb.json`
+#### 6. `Result_aiz_smb.json`
 
-* **Contents:** Based on the 0th, 9th, and 15th genes from `concentration_memory/Result_aiy_aiz_negative_0.json`, synapses AIZ-SMB and SMB-SMB are scaled by 0.9.
-* **Notes:** Gene indices correspond to different salt concentration conditions during development:
+* **Contents**: From `concentration_memory/Result_aiy_aiz_negative_0.json`, uses entries 0, 9, and 15 to scale AIZ–SMB and SMB–SMB synapses by 0.9×.
+* **Notes**:
 
-  * `0`: High salt concentration
-  * `1`: Medium
-  * `2`: Low salt concentration
-
----
+  * Gene index `0`: High-salt cultivation
+  * Gene index `1`: Medium
+  * Gene index `2`: Low-salt cultivation
 
 ### 🔸 `bias/`
 
-### 7. `Result_smb_0.json`
+#### 7. `Result_smb_0.json`
 
-* **Contents:** Based on the 0th gene from `Result_aiy_aiz_negative.json`, this dataset gradually increases the influence of SMB bias.
-* **`value`:** Amount subtracted from the SMB bias (larger values mean stronger effect)
+* **Contents**: Based on the 0th entry of `Result_aiy_aiz_negative.json`, this file incrementally increases the influence of the SMB neuron’s bias.
+* **`value`**: Amount subtracted from the SMB bias (larger values = greater effect).
 
-### 8. `Result_smb.json`
+#### 8. `Result_smb.json`
 
-* **Contents:** For the 0th, 9th, and 15th genes from `concentration_memory/Result_aiy_aiz_negative_0.json`, SMB bias is uniformly decreased by -0.05.
-* **Notes:** Gene indices correspond to different salt concentration conditions during development:
-
-  * `0`: High salt concentration
-  * `1`: Medium
-  * `2`: Low salt concentration
+* **Contents**: From `concentration_memory/Result_aiy_aiz_negative_0.json`, uses entries 0, 9, and 15, setting the SMB bias uniformly to –0.05.
+* **Notes**: Gene indices are the same as in `Result_aiz_smb.json`.
 
 ---
 
 ## 🔚 Notes
 
-* In all files, the `gene` field contains the list of optimized gene parameters.
-* The `value` field represents either the evaluation function value during optimization or a parameter controlling modifications.
-* The JSON format can be easily loaded by Python, Rust, or other scripts for analysis.
+* In every file, the `gene` field is the list of optimized genetic parameters.
+* The `value` field represents either the fitness score from the optimization or the parameter used in the manipulation.
+* All JSON files can be easily loaded by Python, Rust, or similar scripts.
