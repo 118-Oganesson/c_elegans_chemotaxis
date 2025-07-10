@@ -13,17 +13,17 @@ Hironaka Masakatsu, Sumi Tomonari “A neural network model that generates salt 
 
 ## 📚 Table of Contents
 
-* [🧪 Associated Publication](#-associated-publication)
-* [🧠 Abstract](#-abstract)
-* [📁 Repository Structure](#-repository-structure)
-* [🚀 Getting Started](#-getting-started)
-* [⚙️ How to Run Simulations](#-how-to-run-simulations)
-* [🗂️ Data Description](#-data-description)
-* [🌐 Web Application](#-web-application)
-* [📸 Sample Results](#-sample-results)
-* [📖 Citation (BibTeX)](#-citation-bibtex)
-* [🪪 Licensing](#-licensing)
-* [✉️ Contact](#-contact)
+* [🧪 Associated Publication](#associated-publication)
+* [🧠 Abstract](#abstract)
+* [📁 Repository Structure](#repository-structure)
+* [🚀 Getting Started](#getting-started)
+* [⚙️ How to Run Simulations and Configure Settings](#how-to-run-simulations-and-configure-settings)
+* [🗂️ Data Description](#data-description)
+* [🌐 Web Application](#web-application)
+* [📸 Sample Results](#sample-results)
+* [📖 Citation (BibTeX)](#citation-bibtex)
+* [🪪 Licensing](#licensing)
+* [✉️ Contact](#contact)
 
 ---
 
