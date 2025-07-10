@@ -56,6 +56,13 @@ Hironaka Masakatsu, Sumi Tomonari “A neural network model that generates salt 
 * Rust (edition 2021)
 * Python 3.12+
 
+Clone this repository:
+
+```bash
+git clone https://github.com/118-Oganesson/c_elegans_chemotaxis.git
+cd c_elegans_chemotaxis
+```
+
 Build Rust components:
 
 ```bash
@@ -100,19 +107,17 @@ Configuration for these simulations is handled through the following TOML files:
 
 ### Python-based Visualization
 
-Python scripts in `scripts/` allow:
+Python scripts in the `scripts/` directory enable you to:
 
-* Load the data file (`load.py`)
-* Figure reproduction (`figure.py`)
-* Trajectory animation (`animation.py`)
+* Load data files (`load.py`)
+* Create figures (`figure.py`)
+* Animate trajectories (`animation.py`)
 
-These scripts refer to `python_scripts_setting.toml`, which defines simulation and visualization parameters.
+These scripts use settings defined in `python_scripts_setting.toml`, which specifies simulation and visualization parameters.
 
-To explore the results interactively:
+For an interactive example demonstrating how to use these scripts — including reproducing the figures used in our publication — please see the Jupyter notebook:
 
-```bash
-notebook/example.ipynb
-```
+[`notebook/example.ipynb`](notebook/example.ipynb)
 
 ---
 
@@ -121,7 +126,7 @@ notebook/example.ipynb
 - [`data/gene/`](data/gene/): JSON files representing optimized neural parameters and variants  
   ↳ Documentation: [📄 `README_en.md`](data/gene/README_en.md) / [📄 `README_ja.md`](data/gene/README_ja.md)
 
-- `data/experiment/`: Digitized behavioral results (Fig. 5(d), Fig. 6(a)) under different salt concentrations and nutritional states
+- [`data/experiment/`](data/experiment/): Behavioral analysis results (corresponding to Fig. 5(d), Fig. 6(a), and Fig. S9(a)) under various salt concentrations and nutritional states, based on data from [(Kunitomo et al., 2013)](https://doi.org/10.1038/ncomms3210)
 
 - [`data/simulation/`](data/simulation/): Results of simulations with various genetic and environmental conditions  
   ↳ Documentation: [📄 `README_en.md`](data/simulation/README_en.md) / [📄 `README_ja.md`](data/simulation/README_ja.md)
@@ -176,14 +181,16 @@ Individuals cultivated under **high** (top) and **low** (bottom) salt concentrat
 
 ## 🪪 Licensing
 
-This repository is made available for academic and non-commercial use. For other uses, please contact the authors.
+This repository is licensed under the MIT License.
 
 ---
 
 ## ✉️ Contact
 
 **Tomonari Sumi**
+
 Email: [sumi@muroran-it.ac.jp](mailto:sumi@muroran-it.ac.jp)
+
 Lab website: [https://sites.google.com/view/mb-lab/home](https://sites.google.com/view/mb-lab/home)
 
 
