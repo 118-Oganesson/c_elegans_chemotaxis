@@ -36,7 +36,7 @@ Hironaka Masakatsu, Sumi Tomonari “A neural network model that generates salt 
 ├── *.toml                     # Configuration files for simulation and analysis
 ├── requirements.txt           # Python dependencies
 ├── data/                      # All experimental and simulation data
-│   ├── experiment/            # Digitized behavioral data from experiments
+│   ├── experiment/            # Experimental behavioral data
 │   ├── gene/                  # Genetic algorithm results and modifications
 │   └── simulation/            # Output from simulations under various conditions
 ├── notebook/                  # Jupyter notebook example
@@ -141,7 +141,7 @@ A lightweight browser-based simulator that visualizes chemotaxis behavior based 
 
 Powered by **Rust** and **WebAssembly**, it runs fast and fully client-side. Users can adjust parameters and observe worm movement through **real-time animations**.
 
-* ▶️ Try it online: [*C. elegans* Simulator](https://118-oganesson.github.io/WormSim/)
+* ▶️ Try it online: [*C. elegans* Simulator](https://wormsim.streamlit.app/)
 * 🧬 Source code: [GitHub Repository](https://github.com/118-Oganesson/WormSim)
 
 
@@ -189,9 +189,8 @@ This repository is licensed under the MIT License.
 
 **Tomonari Sumi**
 
-Email: [sumi@muroran-it.ac.jp](mailto:sumi@muroran-it.ac.jp)
-
-Lab website: [https://sites.google.com/view/mb-lab/home](https://sites.google.com/view/mb-lab/home)
+* Email: [sumi@muroran-it.ac.jp](mailto:sumi@muroran-it.ac.jp)
+* Lab website: [https://sites.google.com/view/mb-lab/home](https://sites.google.com/view/mb-lab/home)
 
 
 
