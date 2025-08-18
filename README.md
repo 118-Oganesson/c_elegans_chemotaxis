@@ -110,7 +110,7 @@ For an interactive example demonstrating how to use these scripts — including 
 - [`data/gene/`](data/gene/): JSON files representing optimized neural parameters and variants  
   ↳ Documentation: [📄 `README_en.md`](data/gene/README_en.md) / [📄 `README_ja.md`](data/gene/README_ja.md)
 
-- [`data/experiment/`](data/experiment/): Behavioral analysis results (corresponding to Fig. 5(d), Fig. 6(a), and Fig. S9(a)) under various salt concentrations and nutritional states, based on data from [(Kunitomo et al., 2013)](https://doi.org/10.1038/ncomms3210)
+- [`data/experiment/`](data/experiment/): Behavioral analysis results (corresponding to Fig. 5(d), Fig. 6(a), and Fig. 6-Figure supplement 1(a)) under various salt concentrations and nutritional states, based on data from [(Kunitomo et al., 2013)](https://doi.org/10.1038/ncomms3210)
 
 - [`data/simulation/`](data/simulation/): Results of simulations with various genetic and environmental conditions  
   ↳ Documentation: [📄 `README_en.md`](data/simulation/README_en.md) / [📄 `README_ja.md`](data/simulation/README_ja.md)
@@ -150,14 +150,13 @@ Individuals cultivated under **high** (top) and **low** (bottom) salt concentrat
 ## 📖 Citation (BibTeX)
 
 ```bibtex
-@article{Hironaka2025,
-  author = {Hironaka, Masakatsu and Sumi, Tomonari},
-  title = {A neural network model that generates salt concentration memory-dependent chemotaxis in Caenorhabditis elegans},
-  journal = {eLife},
-  volume = {14},
-  pages = {RP104456},
-  year = {2025},
-  doi = {10.7554/eLife.104456.1}
+@article{hironaka2025neural,
+  title={A neural network model that generates salt concentration memory-dependent chemotaxis in Caenorhabditis elegans},
+  author={Hironaka, Masakatsu and Sumi, Tomonari},
+  journal={eLife},
+  volume={14},
+  year={2025},
+  publisher={eLife Sciences Publications Limited}
 }
 ```
 
@@ -165,7 +164,7 @@ Individuals cultivated under **high** (top) and **low** (bottom) salt concentrat
 
 ## 🪪 Licensing
 
-This repository is licensed under the MIT License.
+This repository is licensed under the [MIT License](./LICENSE).
 
 ---
 
