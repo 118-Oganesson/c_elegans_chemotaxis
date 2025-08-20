@@ -1,94 +1,96 @@
-# Description of the `simulation` Directory
+# `simulation` ディレクトリの説明
 
-This directory contains multiple text files with the results of behavioral simulations of *C. elegans* based on genetic parameter sets. Each file records statistical analyses of various behavioral metrics (e.g., curving rate) computed under different conditions. Files are organized by name and subdirectory.
+このディレクトリには、遺伝子パラメータセットに基づいて行った *C. elegans* の行動シミュレーション結果が複数のテキストファイルとして格納されています。各ファイルには、さまざまな条件下で計算された行動指標（例：屈曲率）の統計解析が記録されています。ファイルは名前とサブディレクトリごとに整理されています。
 
 ---
 
-## 📁 File & Directory Overview
+## 📁 ファイル & ディレクトリ概要
 
 ### 1. `with_constraining_AIY-AIZ/`
 
-* **Contents**: Simulation results for the best-performing individual whose genes were optimized under an inhibitory constraint on the AIY–AIZ synapse.
-* **Files**:
+* **内容**: AIY–AIZ シナプスに抑制制約を課した条件で遺伝子が最適化された、最良の個体に関するシミュレーション結果。
+* **ファイル**:
 
   * `bearing_vs_curving_rate_0.txt`
   * `normal_gradient_vs_curving_rate_0.txt`
   * `translational_gradient_vs_curving_rate_0.txt`
-* **Columns**:
+* **カラム**:
 
-  * **bearing\_vs\_curving\_rate**: `[bearing, curving rate, std, max, min]`
-  * **normal\_gradient\_vs\_curving\_rate**: `[normal gradient, curving rate, std, max, min]`
-  * **translational\_gradient\_vs\_curving\_rate**: `[translational gradient, curving rate, std, turning bias (+), std (+), turning bias (–), std (–)]`
+  * **bearing\_vs\_curving\_rate**: `[方位, 屈曲率, 標準偏差, 最大値, 最小値]`
+  * **normal\_gradient\_vs\_curving\_rate**: `[法線勾配, 屈曲率, 標準偏差, 最大値, 最小値]`
+  * **translational\_gradient\_vs\_curving\_rate**: `[移動勾配, 屈曲率, 標準偏差, 最大値, 最小値, 旋回バイアス（+）, 標準偏差（+）, 旋回バイアス（–）, 標準偏差（–）]`
 
 ---
 
 ## 📁 `concentration_memory/`
 
-Holds analysis results for chemotaxis simulations that incorporate salt-concentration memory.
+塩濃度記憶を組み込んだ走化性シミュレーションの解析結果を格納。
 
 ### 2. `Result_aiy_aiz_negative_0/`
 
-* **Contents**: Analysis data for the top gene (index 0) from `Result_aiy_aiz_negative.json`, with stepwise modification of the ASER–AIY synapse.
-* **Files**:
+* **内容**: `Result_aiy_aiz_negative.json` の遺伝子（インデックス 0）の解析データ。ASER–AIY シナプスを段階的に変化させたもの。
+* **ファイル**:
 
-  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` through `n_vs_c_15.txt`
+  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` ～ `n_vs_c_15.txt`
 
 ---
 
 ## 📁 `starvation/`
 
-Contains simulation analyses under starvation conditions.
+飢餓条件下でのシミュレーション解析を格納。
 
 ### 🔸 `synapse/`
 
 #### 3. `Result_aiz_smb_0/`
 
-* **Contents**: Analysis data for the 0th gene in `Result_aiy_aiz_negative.json`, with stepwise weakening of the AIZ–SMB synapse.
-* **Files**:
+* **内容**: `Result_aiy_aiz_negative.json` の遺伝子（インデックス 0）の解析データ。AIZ–SMB シナプスを段階的に弱めたもの。
+* **ファイル**:
 
-  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` through `n_vs_c_10.txt`
+  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` ～ `n_vs_c_10.txt`
 
 #### 4. `Result_aiz_smb/`
 
-* **Contents**: Analysis data for gene indices 0, 9, and 15 from `concentration_memory/Result_aiy_aiz_negative_0.json`, scaling both AIZ–SMB and SMB–SMB synapses by 0.9×.
-* **Files**:
+* **内容**: `concentration_memory/Result_aiy_aiz_negative_0.json` の遺伝子（インデックス 0, 9, 15）の解析データ。AIZ–SMB および SMB–SMB シナプスを 0.9 倍にスケーリング。
+* **ファイル**:
 
-  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` through `n_vs_c_2.txt`
-* **Notes on Gene Indices**:
+  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` ～ `n_vs_c_2.txt`
+* **遺伝子インデックスと条件**:
 
-  * `0`: High-salt rearing
-  * `1`: Medium
-  * `2`: Low-salt rearing
+  * `0`: 高塩条件で飼育
+  * `1`: 中塩条件
+  * `2`: 低塩条件
+
+---
 
 ### 🔸 `bias/`
 
 #### 5. `Result_smb_0/`
 
-* **Contents**: Analysis data for the 0th gene in `Result_aiy_aiz_negative.json`, with stepwise increases in SMB neuron bias.
-* **Files**:
+* **内容**: `Result_aiy_aiz_negative.json` の遺伝子（インデックス 0）の解析データ。SMB ニューロンのバイアスを段階的に増加。
+* **ファイル**:
 
-  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` through `n_vs_c_10.txt`
+  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` ～ `n_vs_c_10.txt`
 
 #### 6. `Result_smb/`
 
-* **Contents**: Analysis data for gene indices 0, 9, and 15 from `concentration_memory/Result_aiy_aiz_negative_0.json`, setting SMB bias uniformly to –0.05.
-* **Files**:
+* **内容**: `concentration_memory/Result_aiy_aiz_negative_0.json` の遺伝子（インデックス 0, 9, 15）の解析データ。SMB バイアスを一律 –0.05 に設定。
+* **ファイル**:
 
-  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` through `n_vs_c_2.txt`
-* **Notes**: Gene indices and conditions match those in the `synapse` subdirectory.
+  * `normal_gradient_vs_curving_rate/n_vs_c_0.txt` ～ `n_vs_c_2.txt`
+* **備考**: 遺伝子インデックスと条件は `synapse` サブディレクトリと同じ。
 
 ---
 
-## 🔚 Notes
+## 🔚 備考
 
-* **Column format (all files)**:
+* **全ファイルのカラム形式**:
 
-  1. Input variable (e.g., bearing, gradient)
-  2. Curving rate
-  3. Statistical metrics (std, max, min, etc.)
+  1. 入力変数（例：方位、勾配）
+  2. 屈曲率
+  3. 統計指標（標準偏差、最大値、最小値など）
 
-* All files are plain text and can be readily loaded by scripts (Python, Rust, etc.).
+* すべてプレーンテキスト形式であり、Python や Rust などのスクリプトで容易に読み込み可能。
 
-* Directory structure makes it easy to see at a glance which gene and condition produced each data set.
+* ディレクトリ構造により、どの遺伝子・条件で得られたデータかが一目で分かる。
 
-* When used alongside the `gene/` directory, these results allow systematic evaluation of how synaptic modulations affect worm behavior.
+* `gene/` ディレクトリと併用することで、シナプス操作が線虫の行動に与える影響を体系的に評価可能。
