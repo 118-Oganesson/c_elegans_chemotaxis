@@ -98,9 +98,9 @@ def gene_asel_aiy_delete(
         change_result.append({"value": 0.0, "gene": gene})
 
     json_data = json.dumps(change_result, indent=1)
-    os.makedirs("../result/newron_deletion", exist_ok=True)
+    os.makedirs("../result/neuron_deletion", exist_ok=True)
     with open(
-        "../result/newron_deletion/Result_asel_{}.json".format(gene_number),
+        "../result/neuron_deletion/Result_asel_{}.json".format(gene_number),
         "w",
     ) as json_file:
         json_file.write(json_data)

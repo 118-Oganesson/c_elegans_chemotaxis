@@ -200,7 +200,7 @@ def rotate_point(x, y, theta):
     return x_rot, y_rot
 
 
-def newron_output(
+def neuron_output(
     gene,
     out_file_path,
     sawtooth_wave_start=4,
@@ -212,7 +212,7 @@ def newron_output(
 ):
     N, M, theta, w_on, w_off, w, g, w_osc, w_nmj = oed.weight(gene)
     alpha, x_peak, y_peak, dt, T, f, v, time, tau, c_0, lambda_ = oed.constant(
-        "setting_newron_output"
+        "setting_neuron_output"
     )
     start = 150  # 開始時間
 
@@ -272,19 +272,19 @@ def newron_output(
     fig.subplots_adjust(hspace=0.4)
 
     def ASE_line(ASE_mode):
-        for newron in np.arange(0, 1.1, 0.1):
+        for neuron in np.arange(0, 1.1, 0.1):
             ASEL = np.zeros(len(t))
             ASER = np.zeros(len(t))
 
             if ASE_mode == 0:
                 for i in range(int(sawtooth_wave_time / dt)):
-                    ASEL[int(sawtooth_wave_start / dt) + i] = newron * (
+                    ASEL[int(sawtooth_wave_start / dt) + i] = neuron * (
                         -t[i] / sawtooth_wave_time
                         - np.floor(-t[i] / sawtooth_wave_time)
                     )
             else:
                 for i in range(int(2 / dt)):
-                    ASER[int(sawtooth_wave_start / dt) + i] = newron * (
+                    ASER[int(sawtooth_wave_start / dt) + i] = neuron * (
                         -t[i] / sawtooth_wave_time
                         - np.floor(-t[i] / sawtooth_wave_time)
                     )
@@ -319,9 +319,9 @@ def newron_output(
 
             # カラーマップを使用して色を指定
             if ASE_mode == 0:
-                color = plt.cm.Blues(newron)
+                color = plt.cm.Blues(neuron)
             else:
-                color = plt.cm.Reds(newron)
+                color = plt.cm.Reds(neuron)
 
             # プロットを指定した位置に表示
             axs[0, 0].plot(t[start:], ASEL[start:], color=color)
@@ -559,7 +559,7 @@ def newron_output(
     return
 
 
-def newron_membrane_potential(
+def neuron_membrane_potential(
     gene,
     out_file_path,
     sawtooth_wave_start=4,
@@ -580,7 +580,7 @@ def newron_membrane_potential(
 
     N, M, theta, w_on, w_off, w, g, w_osc, w_nmj = oed.weight(gene)
     alpha, x_peak, y_peak, dt, T, f, v, time, tau, c_0, lambda_ = oed.constant(
-        "setting_newron_output"
+        "setting_neuron_output"
     )
     start = 150  # プロット開始時間ステップ
 
@@ -599,10 +599,10 @@ def newron_membrane_potential(
     fig.subplots_adjust(hspace=0.4)
 
     def ASE_line(ASE_mode):
-        for newron in np.arange(0, 1.1, 0.1):
+        for neuron in np.arange(0, 1.1, 0.1):
             ASEL = np.zeros(len(t))
             ASER = np.zeros(len(t))
-            wave = newron * (
+            wave = neuron * (
                 -t / sawtooth_wave_time - np.floor(-t / sawtooth_wave_time)
             )
 
@@ -630,7 +630,7 @@ def newron_membrane_potential(
                     * dt
                 )
 
-            color = plt.cm.Blues(newron) if ASE_mode == 0 else plt.cm.Reds(newron)
+            color = plt.cm.Blues(neuron) if ASE_mode == 0 else plt.cm.Reds(neuron)
             for i in range(4):
                 axs[i // 2, i % 2].plot(t[start:], y[i][start:], color=color)
 
@@ -827,9 +827,9 @@ def connectome(gene, out_file_path):
     negative_color = "red"
     gap_color = "green"
 
-    chemosensory_newrons = [(3, 9), (6, 9)]
-    inter_newrons = [(3, 6), (6, 6), (3, 3), (6, 3)]
-    motor_newrons = [(0, 0), (3, 0), (6, 0), (9, 0)]
+    chemosensory_neurons = [(3, 9), (6, 9)]
+    inter_neurons = [(3, 6), (6, 6), (3, 3), (6, 3)]
+    motor_neurons = [(0, 0), (3, 0), (6, 0), (9, 0)]
 
     chemosensory_names = ["ASEL", "ASER"]
     inter_names = ["AIYL", "AIYR", "AIZL", "AIZR"]
@@ -837,7 +837,7 @@ def connectome(gene, out_file_path):
 
     # 円の作成
     # 感覚ニューロン
-    for i, center in enumerate(chemosensory_newrons):
+    for i, center in enumerate(chemosensory_neurons):
         circle = patches.Circle(
             xy=center, radius=1, facecolor="white", edgecolor="black"
         )
@@ -852,7 +852,7 @@ def connectome(gene, out_file_path):
         )
 
     # 介在ニューロン
-    for i, center in enumerate(inter_newrons):
+    for i, center in enumerate(inter_neurons):
         circle = patches.Circle(
             xy=center, radius=1, facecolor="lightgray", edgecolor="black"
         )
@@ -867,7 +867,7 @@ def connectome(gene, out_file_path):
         )
 
     # 運動ニューロン
-    for i, center in enumerate(motor_newrons):
+    for i, center in enumerate(motor_neurons):
         circle = patches.Circle(
             xy=center, radius=1, facecolor="black", edgecolor="black"
         )
@@ -886,29 +886,29 @@ def connectome(gene, out_file_path):
     # 感覚ニューロン
     chemosensory_annotations = [
         {
-            "start": (chemosensory_newrons[0][0], chemosensory_newrons[0][1] - 1),
-            "end": (chemosensory_newrons[0][0], chemosensory_newrons[0][1] - 2),
+            "start": (chemosensory_neurons[0][0], chemosensory_neurons[0][1] - 1),
+            "end": (chemosensory_neurons[0][0], chemosensory_neurons[0][1] - 2),
             "weight": gene[8],
         },
         {
-            "start": (chemosensory_newrons[1][0], chemosensory_newrons[1][1] - 1),
-            "end": (chemosensory_newrons[1][0], chemosensory_newrons[1][1] - 2),
+            "start": (chemosensory_neurons[1][0], chemosensory_neurons[1][1] - 1),
+            "end": (chemosensory_neurons[1][0], chemosensory_neurons[1][1] - 2),
             "weight": gene[11],
         },
         {
             "start": (
-                chemosensory_newrons[0][0] + inv_root_2,
-                chemosensory_newrons[0][1] - inv_root_2,
+                chemosensory_neurons[0][0] + inv_root_2,
+                chemosensory_neurons[0][1] - inv_root_2,
             ),
-            "end": (inter_newrons[1][0] - inv_root_2, inter_newrons[1][1] + inv_root_2),
+            "end": (inter_neurons[1][0] - inv_root_2, inter_neurons[1][1] + inv_root_2),
             "weight": gene[9],
         },
         {
             "start": (
-                chemosensory_newrons[1][0] - inv_root_2,
-                chemosensory_newrons[1][1] - inv_root_2,
+                chemosensory_neurons[1][0] - inv_root_2,
+                chemosensory_neurons[1][1] - inv_root_2,
             ),
-            "end": (inter_newrons[0][0] + inv_root_2, inter_newrons[0][1] + inv_root_2),
+            "end": (inter_neurons[0][0] + inv_root_2, inter_neurons[0][1] + inv_root_2),
             "weight": gene[10],
         },
     ]
@@ -940,39 +940,39 @@ def connectome(gene, out_file_path):
     # 介在ニューロン
     inter_annotations = [
         {
-            "start": (inter_newrons[0][0], inter_newrons[0][1] - 1),
-            "end": (inter_newrons[0][0], inter_newrons[0][1] - 2),
+            "start": (inter_neurons[0][0], inter_neurons[0][1] - 1),
+            "end": (inter_neurons[0][0], inter_neurons[0][1] - 2),
             "weight": gene[12],
         },
         {
-            "start": (inter_newrons[1][0], inter_newrons[1][1] - 1),
-            "end": (inter_newrons[1][0], inter_newrons[1][1] - 2),
+            "start": (inter_neurons[1][0], inter_neurons[1][1] - 1),
+            "end": (inter_neurons[1][0], inter_neurons[1][1] - 2),
             "weight": gene[13],
         },
         {
-            "start": (inter_newrons[2][0], inter_newrons[2][1] - 1),
-            "end": (inter_newrons[2][0], inter_newrons[2][1] - 2),
+            "start": (inter_neurons[2][0], inter_neurons[2][1] - 1),
+            "end": (inter_neurons[2][0], inter_neurons[2][1] - 2),
             "weight": gene[14],
         },
         {
-            "start": (inter_newrons[3][0], inter_newrons[3][1] - 1),
-            "end": (inter_newrons[3][0], inter_newrons[3][1] - 2),
+            "start": (inter_neurons[3][0], inter_neurons[3][1] - 1),
+            "end": (inter_neurons[3][0], inter_neurons[3][1] - 2),
             "weight": gene[15],
         },
         {
             "start": (
-                inter_newrons[2][0] - inv_root_2,
-                inter_newrons[2][1] - inv_root_2,
+                inter_neurons[2][0] - inv_root_2,
+                inter_neurons[2][1] - inv_root_2,
             ),
-            "end": (motor_newrons[0][0] + inv_root_2, motor_newrons[0][1] + inv_root_2),
+            "end": (motor_neurons[0][0] + inv_root_2, motor_neurons[0][1] + inv_root_2),
             "weight": gene[14],
         },
         {
             "start": (
-                inter_newrons[3][0] + inv_root_2,
-                inter_newrons[3][1] - inv_root_2,
+                inter_neurons[3][0] + inv_root_2,
+                inter_neurons[3][1] - inv_root_2,
             ),
-            "end": (motor_newrons[3][0] - inv_root_2, motor_newrons[3][1] + inv_root_2),
+            "end": (motor_neurons[3][0] - inv_root_2, motor_neurons[3][1] + inv_root_2),
             "weight": gene[15],
         },
     ]
@@ -1016,58 +1016,58 @@ def connectome(gene, out_file_path):
     motor_curves = [
         {
             "center": (
-                motor_newrons[0][0] - inv_root_2,
-                motor_newrons[0][1] + inv_root_2,
+                motor_neurons[0][0] - inv_root_2,
+                motor_neurons[0][1] + inv_root_2,
             ),
             "weight": gene[16],
             "start_angle": start_angle,
             "end_angle": end_angle,
-            "point_1": (motor_newrons[0][0], motor_newrons[0][1]),
+            "point_1": (motor_neurons[0][0], motor_neurons[0][1]),
             "point_2": (
-                motor_newrons[0][0] - inv_root_2 + end[0],
-                motor_newrons[0][1] + inv_root_2 + end[1],
+                motor_neurons[0][0] - inv_root_2 + end[0],
+                motor_neurons[0][1] + inv_root_2 + end[1],
             ),
         },
         {
             "center": (
-                motor_newrons[1][0] - inv_root_2,
-                motor_newrons[1][1] + inv_root_2,
+                motor_neurons[1][0] - inv_root_2,
+                motor_neurons[1][1] + inv_root_2,
             ),
             "weight": gene[16],
             "start_angle": start_angle,
             "end_angle": end_angle,
-            "point_1": (motor_newrons[1][0], motor_newrons[1][1]),
+            "point_1": (motor_neurons[1][0], motor_neurons[1][1]),
             "point_2": (
-                motor_newrons[1][0] - inv_root_2 + end[0],
-                motor_newrons[1][1] + inv_root_2 + end[1],
+                motor_neurons[1][0] - inv_root_2 + end[0],
+                motor_neurons[1][1] + inv_root_2 + end[1],
             ),
         },
         {
             "center": (
-                motor_newrons[2][0] + inv_root_2,
-                motor_newrons[2][1] + inv_root_2,
+                motor_neurons[2][0] + inv_root_2,
+                motor_neurons[2][1] + inv_root_2,
             ),
             "weight": gene[17],
             "start_angle": -(end_angle - 180),
             "end_angle": 180 - start_angle,
-            "point_1": (motor_newrons[2][0], motor_newrons[2][1]),
+            "point_1": (motor_neurons[2][0], motor_neurons[2][1]),
             "point_2": (
-                motor_newrons[2][0] - inv_root_2 + 2 * inv_root_2 - end[0],
-                motor_newrons[2][1] + inv_root_2 + end[1],
+                motor_neurons[2][0] - inv_root_2 + 2 * inv_root_2 - end[0],
+                motor_neurons[2][1] + inv_root_2 + end[1],
             ),
         },
         {
             "center": (
-                motor_newrons[3][0] + inv_root_2,
-                motor_newrons[3][1] + inv_root_2,
+                motor_neurons[3][0] + inv_root_2,
+                motor_neurons[3][1] + inv_root_2,
             ),
             "weight": gene[17],
             "start_angle": -(end_angle - 180),
             "end_angle": 180 - start_angle,
-            "point_1": (motor_newrons[3][0], motor_newrons[3][1]),
+            "point_1": (motor_neurons[3][0], motor_neurons[3][1]),
             "point_2": (
-                motor_newrons[3][0] - inv_root_2 + 2 * inv_root_2 - end[0],
-                motor_newrons[3][1] + inv_root_2 + end[1],
+                motor_neurons[3][0] - inv_root_2 + 2 * inv_root_2 - end[0],
+                motor_neurons[3][1] + inv_root_2 + end[1],
             ),
         },
     ]
@@ -1116,15 +1116,15 @@ def connectome(gene, out_file_path):
     # ギャップ結合の作成
     inter_lines = [
         {
-            "base": inter_newrons[0][1],
-            "start": inter_newrons[0][0] + 1,
-            "end": inter_newrons[1][0] - 1,
+            "base": inter_neurons[0][1],
+            "start": inter_neurons[0][0] + 1,
+            "end": inter_neurons[1][0] - 1,
             "weight": oed.gene_range_1(gene[18], 0, gap_width),
         },
         {
-            "base": inter_newrons[2][1],
-            "start": inter_newrons[2][0] + 1,
-            "end": inter_newrons[3][0] - 1,
+            "base": inter_neurons[2][1],
+            "start": inter_neurons[2][0] + 1,
+            "end": inter_neurons[3][0] - 1,
             "weight": oed.gene_range_1(gene[19], 0, gap_width),
         },
     ]
