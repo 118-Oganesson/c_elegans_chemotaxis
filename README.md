@@ -1,11 +1,11 @@
 # README: C. elegans Chemotaxis Simulation
 
-## 🧪 Associated Publication
+## 📚 Associated Publication
 
 Hironaka Masakatsu, Sumi Tomonari “A neural network model that generates salt concentration memory-dependent chemotaxis in *Caenorhabditis elegans*” *eLife* **14**:RP104456 (2025).
 [DOI: 10.7554/eLife.104456.1](https://doi.org/10.7554/eLife.104456.1)
 
-### 🧠 Abstract
+### Abstract
 
 > A neuroanatomical minimal network model was revisited to elucidate the mechanism of salt concentration memory-dependent chemotaxis observed in *Caenorhabditis elegans*. *C. elegans* memorizes the salt concentration during cultivation, manifesting a pronounced taste preference for this concentration. The right-side head sensory neuron, designated ASER, exhibits a response to a decrease in salt concentration. The basal level of glutamate transmission from ASER has been demonstrated to transiently increase and decrease when the current environmental salt concentrations are lower and higher, respectively, than that during previous cultivation. Given the sensitivity of excitatory/inhibitory glutamate receptors expressed on the postsynaptic AIY interneurons, it can be anticipated that the ASER-AIY synaptic transmission will undergo a reversal due to alterations in the basal glutamate release. The neural network, derived from the hypothesis, reproduced the salt concentration memory-dependent preference behavior and revealed that the circuit downstream of ASE functions as a module that is responsible for salt klinotaxis.
 
