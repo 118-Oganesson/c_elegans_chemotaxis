@@ -3,7 +3,7 @@
 ## 📚 Associated Publication
 
 Hironaka Masakatsu, Sumi Tomonari “A neural network model that generates salt concentration memory-dependent chemotaxis in *Caenorhabditis elegans*” *eLife* **14**:RP104456 (2025).
-[DOI: 10.7554/eLife.104456.1](https://doi.org/10.7554/eLife.104456.1)
+[https://elifesciences.org/articles/104456](https://elifesciences.org/articles/104456)
 
 ### Abstract
 
@@ -52,7 +52,6 @@ Build Rust components:
 ```bash
 cargo build --release
 ```
-
 
 Install Python dependencies:
 
@@ -107,14 +106,13 @@ For an interactive example demonstrating how to use these scripts — including 
 
 ## 🗂️ Data Description
 
-- [`data/gene/`](data/gene/): JSON files representing optimized neural parameters and variants  
+* [`data/gene/`](data/gene/): JSON files representing optimized neural parameters and variants  
   ↳ Documentation: [📄 `README_en.md`](data/gene/README_en.md) / [📄 `README_ja.md`](data/gene/README_ja.md)
 
-- [`data/experiment/`](data/experiment/): Behavioral analysis results (corresponding to Fig. 5(d), Fig. 6(a), and Fig. 6-Figure supplement 1(a)) under various salt concentrations and nutritional states, based on data from [(Kunitomo et al., 2013)](https://doi.org/10.1038/ncomms3210)
+* [`data/experiment/`](data/experiment/): Behavioral analysis results (corresponding to Fig. 5(d), Fig. 6(a), and Fig. 6-Figure supplement 1(a)) under various salt concentrations and nutritional states, based on data from [(Kunitomo et al., 2013)](https://doi.org/10.1038/ncomms3210)
 
-- [`data/simulation/`](data/simulation/): Results of simulations with various genetic and environmental conditions  
+* [`data/simulation/`](data/simulation/): Results of simulations with various genetic and environmental conditions  
   ↳ Documentation: [📄 `README_en.md`](data/simulation/README_en.md) / [📄 `README_ja.md`](data/simulation/README_ja.md)
-
 
 ---
 
@@ -127,7 +125,6 @@ Powered by **Rust** and **WebAssembly**, it runs fast and fully client-side. Use
 
 * ▶️ Try it online: [*C. elegans* Simulator](https://wormsim.streamlit.app/)
 * 🧬 Source code: [GitHub Repository](https://github.com/118-Oganesson/WormSim)
-
 
 ---
 
@@ -170,10 +167,7 @@ This repository is licensed under the [MIT License](./LICENSE).
 
 ## ✉️ Contact
 
-**Tomonari Sumi**
+### Tomonari Sumi
 
 * Email: [sumi@muroran-it.ac.jp](mailto:sumi@muroran-it.ac.jp)
 * Lab website: [https://sites.google.com/view/mb-lab/home](https://sites.google.com/view/mb-lab/home)
-
-
-
