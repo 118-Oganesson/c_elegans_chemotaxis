@@ -152,6 +152,7 @@ Individuals cultivated under **high** (top) and **low** (bottom) salt concentrat
   author={Hironaka, Masakatsu and Sumi, Tomonari},
   journal={eLife},
   volume={14},
+  pages={RP104456},
   year={2025},
   publisher={eLife Sciences Publications Limited}
 }
